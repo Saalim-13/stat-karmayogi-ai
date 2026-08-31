@@ -1,0 +1,12 @@
+---
+description: Stat-Karmayogi AI stack, product loop, and API contracts
+alwaysApply: true
+---
+
+# Stat-Karmayogi AI
+
+- FastAPI lives in `backend/app/`. Next.js App Router lives in `frontend/app/`.
+- Put LangChain and Chroma in `backend/app/core/`. Put Bloom quiz generation in `backend/app/services/`.
+- Keep routers thin. Use Pydantic models. Rule-based quiz generation must work without an LLM key.
+- Endpoints: `POST /api/mcq/generate`, `POST /api/igot/recommend`, `POST /api/rag/ingest`.
+- Prefer iGOT courses in recommendations. Cite source excerpts on MCQs. Do not scrape iGOT or claim live credits.

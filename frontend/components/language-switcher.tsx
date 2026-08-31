@@ -1,0 +1,4 @@
+"use client";
+
+import { LANGUAGES, type LanguageCode, useI18n } from "@/lib/i18n";
+export function LanguageSwitcher() { const { language, setLanguage, t, localized } = useI18n(); return <label className="flex items-center gap-2 text-xs font-semibold text-[#3d4f63]"><span aria-hidden>🌐</span><span className="sr-only">{t("language")}</span><select aria-label={t("language")} value={language} onChange={(event) => setLanguage(event.target.value as LanguageCode)} className="rounded-lg border border-[#d9d0c0] bg-white px-2 py-1 text-xs font-normal text-[#102033]">{LANGUAGES.map((item) => <option key={item.code} value={item.code}>{item.label}</option>)}</select>{!localized ? <span title="The shared interface currently falls back to English while this language pack is being reviewed.">EN fallback</span> : null}</label>; }
