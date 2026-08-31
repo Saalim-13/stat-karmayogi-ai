@@ -241,9 +241,10 @@ def generate_quiz(text: str, source_name: str, bloom_mix: list[Bloom] | None = N
             questions.append(item)
 
     competency_ids = list({q["competency_id"] for q in questions if q.get("competency_id")})
+    title_source = re.sub(r"\.[^.]+$", "", source_name)
     output = {
         "id": _hash_id(source_name + str(len(questions))),
-        "title": f"MCQ set · {re.sub(r'\.[^.]+$', '', source_name)}",
+        "title": f"MCQ set · {title_source}",
         "source_name": source_name,
         "questions": questions[:12],
         "competency_ids": competency_ids,
